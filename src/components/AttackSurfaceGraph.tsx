@@ -72,10 +72,10 @@ export const AttackSurfaceGraph: React.FC<AttackSurfaceGraphProps> = ({ rootNode
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
       {/* Left 2 Cols: Visual Hierarchy Map */}
-      <div className="lg:col-span-2 glass-panel rounded-2xl p-6 border border-white/10 relative overflow-hidden bg-gradient-to-br from-[#0c0e17] via-[#090b12] to-[#0f111d]">
-        <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
+      <div className="lg:col-span-2 glass-panel rounded-2xl p-4 sm:p-6 border border-white/10 relative overflow-hidden bg-gradient-to-br from-[#0c0e17] via-[#090b12] to-[#0f111d]">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-white/10 mb-6">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-red-950/80 border border-red-700/50 flex items-center justify-center text-red-400">
+            <div className="w-8 h-8 rounded-lg bg-red-950/80 border border-red-700/50 flex items-center justify-center text-red-400 shrink-0">
               <Layers className="w-4 h-4" />
             </div>
             <div>
@@ -88,7 +88,7 @@ export const AttackSurfaceGraph: React.FC<AttackSurfaceGraphProps> = ({ rootNode
             </div>
           </div>
 
-          <span className="text-xs font-mono px-2.5 py-1 rounded-md bg-slate-900 border border-white/10 text-slate-300">
+          <span className="text-xs font-mono px-2.5 py-1 rounded-md bg-slate-900 border border-white/10 text-slate-300 self-start sm:self-auto">
             {rootNode.children?.length || 0} Subdomains / Assets Discovered
           </span>
         </div>
@@ -145,7 +145,7 @@ export const AttackSurfaceGraph: React.FC<AttackSurfaceGraphProps> = ({ rootNode
                       setSelectedNode(child);
                       setEvalResult(null);
                     }}
-                    className={`p-3.5 rounded-xl border transition-all cursor-pointer flex items-center justify-between ${
+                    className={`p-3 sm:p-3.5 rounded-xl border transition-all cursor-pointer flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 ${
                       isSelected
                         ? 'bg-gradient-to-r from-red-950/70 to-slate-900 border-red-500/60 shadow-[0_0_15px_rgba(220,38,38,0.2)]'
                         : 'bg-slate-900/60 border-white/10 hover:border-white/20 hover:bg-slate-900'
@@ -156,22 +156,22 @@ export const AttackSurfaceGraph: React.FC<AttackSurfaceGraphProps> = ({ rootNode
                         <Server className="w-4 h-4 text-slate-400" />
                       </div>
                       <div className="min-w-0">
-                        <div className="flex items-center gap-2 truncate flex-wrap">
-                          <span className="font-mono font-semibold text-slate-100 text-xs truncate">
+                        <div className="flex items-center gap-2 flex-wrap">
+                          <span className="font-mono font-semibold text-slate-100 text-xs break-all">
                             {child.name.includes('.') ? child.name : `${child.name}.${rootNode.domain}`}
                           </span>
                           <span className={`px-2 py-0.5 rounded text-[9px] font-mono border uppercase shrink-0 ${getTypeBadge(child.type)}`}>
                             {child.type}
                           </span>
                         </div>
-                        <div className="text-[11px] text-slate-400 font-mono flex items-center gap-3 mt-0.5">
+                        <div className="text-[11px] text-slate-400 font-mono flex flex-wrap items-center gap-x-3 gap-y-0.5 mt-0.5">
                           <span>{child.endpointsCount} endpoints</span>
                           <span className="truncate">Stack: {child.techStack?.slice(0, 2).join(', ') || 'HTTP'}</span>
                         </div>
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-2 shrink-0">
+                    <div className="flex items-center justify-between sm:justify-end gap-2 shrink-0 pl-11 sm:pl-0">
                       <span className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold border ${getPriorityBadge(childPriority)}`}>
                         {childPriority}
                       </span>

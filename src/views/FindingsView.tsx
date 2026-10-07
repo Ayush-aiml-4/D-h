@@ -40,7 +40,7 @@ export const FindingsView: React.FC<FindingsViewProps> = ({
         </div>
 
         {/* Filter Controls */}
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2">
           <select
             value={severityFilter}
             onChange={(e) => setSeverityFilter(e.target.value)}
@@ -80,10 +80,10 @@ export const FindingsView: React.FC<FindingsViewProps> = ({
             <div
               key={finding.id}
               onClick={() => onSelectFinding(finding.id)}
-              className="glass-panel card-lift rounded-2xl p-6 border border-white/10 hover:border-red-500/40 cursor-pointer group relative overflow-hidden hover:bg-slate-900/90"
+              className="glass-panel card-lift rounded-2xl p-4 sm:p-6 border border-white/10 hover:border-red-500/40 cursor-pointer group relative overflow-hidden hover:bg-slate-900/90"
             >
-              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-3">
-                <div className="flex items-center gap-3">
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 sm:gap-4 mb-3">
+                <div className="flex flex-wrap items-center gap-2 sm:gap-3">
                   <SeverityBadge severity={finding.severity} />
                   <span className="text-xs font-mono font-bold text-emerald-400 bg-emerald-950/60 border border-emerald-800/40 px-2.5 py-0.5 rounded-full">
                     Confidence: {finding.confidence}%
@@ -91,7 +91,7 @@ export const FindingsView: React.FC<FindingsViewProps> = ({
                   <span className="text-xs font-mono text-slate-400">• {finding.category}</span>
                 </div>
 
-                <div className="flex items-center gap-3 shrink-0">
+                <div className="flex flex-wrap items-center justify-between md:justify-end gap-2 sm:gap-3 shrink-0">
                   <span className="text-xs font-mono text-slate-300 font-semibold px-2.5 py-1 rounded bg-slate-900 border border-white/10">
                     {finding.status}
                   </span>

@@ -148,13 +148,13 @@ export function SecurityProgramOpsView() {
   const totalPages = Math.max(1, Math.ceil(reportTotal / pageSize) || 1);
 
   return (
-    <div className="p-6 max-w-5xl mx-auto space-y-6 text-slate-100">
-      <div className="flex items-center justify-between gap-4">
+    <div className="p-0 sm:p-4 md:p-6 max-w-5xl mx-auto space-y-6 text-slate-100">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
         <div className="flex items-center gap-3">
-          <Shield className="w-7 h-7 text-cyan-400" />
+          <Shield className="w-7 h-7 text-cyan-400 shrink-0" />
           <div>
-            <h1 className="text-xl font-semibold">Security Program Ops</h1>
-            <p className="text-sm text-slate-400">
+            <h1 className="text-lg sm:text-xl font-semibold">Security Program Ops</h1>
+            <p className="text-xs sm:text-sm text-slate-400">
               Internal operational view — not a public bounty page
             </p>
           </div>
@@ -166,7 +166,7 @@ export function SecurityProgramOpsView() {
             void loadReports();
             void loadAudits();
           }}
-          className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-sm"
+          className="inline-flex items-center justify-center gap-2 px-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-sm self-start sm:self-auto"
         >
           <RefreshCw className={`w-4 h-4 ${loading || reportsLoading ? 'animate-spin' : ''}`} />
           Refresh

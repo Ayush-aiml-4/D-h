@@ -380,19 +380,19 @@ export const OperationalReadinessView: React.FC = () => {
   };
 
   return (
-    <div className="p-6 space-y-6 max-w-7xl mx-auto text-zinc-200">
+    <div className="p-0 sm:p-4 md:p-6 space-y-6 max-w-7xl mx-auto text-zinc-200">
       {/* Mission #0019 Operator Engagement Console */}
       <OperatorEngagementConsoleView />
 
       {/* Top Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-zinc-800">
         <div>
-          <div className="flex items-center gap-3">
-            <div className="p-2.5 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400">
+          <div className="flex items-start sm:items-center gap-3">
+            <div className="p-2.5 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 shrink-0">
               <ShieldCheck className="w-6 h-6" />
             </div>
             <div>
-              <h1 className="text-xl font-bold tracking-tight text-white flex items-center gap-2">
+              <h1 className="text-lg sm:text-xl font-bold tracking-tight text-white flex items-center gap-2">
                 Operational Readiness & Governance Dashboard
               </h1>
               <p className="text-xs text-zinc-400">
@@ -402,9 +402,9 @@ export const OperationalReadinessView: React.FC = () => {
           </div>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex flex-wrap items-center gap-3">
           {evaluation && (
-            <div className="flex items-center gap-2">
+            <div className="flex flex-wrap items-center gap-2">
               <span className="text-xs font-mono text-zinc-500">OVERALL READINESS:</span>
               {renderStatusBadge(evaluation.overallReadiness)}
             </div>
@@ -420,12 +420,12 @@ export const OperationalReadinessView: React.FC = () => {
       </div>
 
       {/* Program Selector */}
-      <div className="flex items-center gap-4 bg-zinc-900/60 p-4 rounded-lg border border-zinc-800">
-        <label className="text-xs font-mono uppercase tracking-wider text-zinc-400">Selected Program:</label>
+      <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 bg-zinc-900/60 p-4 rounded-lg border border-zinc-800">
+        <label className="text-xs font-mono uppercase tracking-wider text-zinc-400 shrink-0">Selected Program:</label>
         <select
           value={selectedProfileId}
           onChange={(e) => setSelectedProfileId(e.target.value)}
-          className="bg-zinc-800 border border-zinc-700 rounded-md px-3 py-1.5 text-sm text-white focus:outline-none focus:border-red-500"
+          className="w-full sm:w-auto bg-zinc-800 border border-zinc-700 rounded-md px-3 py-1.5 text-sm text-white focus:outline-none focus:border-red-500"
         >
           {profiles.map((p) => (
             <option key={p.id} value={p.id}>
@@ -587,20 +587,20 @@ export const OperationalReadinessView: React.FC = () => {
             {selectedProfile.onboardingStage === 'READY_FOR_PASSIVE_TESTING' && (
               <div className="flex flex-wrap items-center justify-between gap-3 bg-emerald-950/20 p-2.5 rounded border border-emerald-800/40 text-xs w-full">
                 <div className="flex items-center gap-2 text-emerald-400 font-medium">
-                  <ShieldCheck className="w-4 h-4" />
-                  Program is authorized for PASSIVE RESEARCH. Active testing remains locked.
+                  <ShieldCheck className="w-4 h-4 shrink-0" />
+                  <span>Program is authorized for PASSIVE RESEARCH. Active testing remains locked.</span>
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex flex-col sm:flex-row sm:items-center gap-2 w-full sm:w-auto">
                   <input
                     type="text"
                     value={activeReason}
                     onChange={(e) => setActiveReason(e.target.value)}
                     placeholder="Active authorization rationale..."
-                    className="bg-zinc-900 px-2 py-1 rounded text-white border border-zinc-700 text-xs w-64"
+                    className="bg-zinc-900 px-2 py-1.5 rounded text-white border border-zinc-700 text-xs w-full sm:w-64"
                   />
                   <button
                     onClick={handleAuthorizeActive}
-                    className="px-3 py-1 bg-red-600 hover:bg-red-500 text-white rounded font-medium text-xs flex items-center gap-1"
+                    className="px-3 py-1.5 bg-red-600 hover:bg-red-500 text-white rounded font-medium text-xs flex items-center justify-center gap-1 shrink-0"
                     title="Unlock active capabilities with human token"
                   >
                     <Unlock className="w-3.5 h-3.5" /> Authorize Active Testing

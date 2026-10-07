@@ -108,7 +108,7 @@ export const StartHuntModal: React.FC<StartHuntModalProps> = ({
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="glass-panel-accent w-full max-w-xl rounded-2xl p-6 border border-red-700/40 shadow-[0_0_50px_rgba(220,38,38,0.2)] relative overflow-hidden text-slate-100"
+        className="glass-panel-accent w-full max-w-xl max-h-[90vh] overflow-y-auto rounded-2xl p-4 sm:p-6 border border-red-700/40 shadow-[0_0_50px_rgba(220,38,38,0.2)] relative text-slate-100"
       >
         {/* Subtle glow circle */}
         <div className="absolute -top-16 -right-16 w-48 h-48 bg-red-600/20 rounded-full blur-3xl pointer-events-none" />

@@ -61,6 +61,7 @@ export default function App() {
   // Navigation & UI State
   const [currentTab, setCurrentTab] = useState<NavTab | 'program-detail' | 'active-hunt' | 'finding-detail' | 'report-detail'>('home');
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
 
   // App Data State
   const [profile, setProfile] = useState<UserProfile>(initialProfile);
@@ -313,7 +314,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#090A0F] text-slate-100 flex font-sans antialiased selection:bg-red-900/40 selection:text-red-200">
+    <div className="min-h-screen bg-[#090A0F] text-slate-100 flex font-sans antialiased selection:bg-red-900/40 selection:text-red-200 overflow-x-hidden">
       {/* Sidebar Navigation */}
       <Sidebar
         currentTab={currentTab as NavTab}
@@ -322,18 +323,21 @@ export default function App() {
         onToggleCollapse={() => setSidebarCollapsed(!sidebarCollapsed)}
         actionableCount={actionableCount}
         activeHuntCount={activeHuntCount}
+        mobileOpen={mobileSidebarOpen}
+        onCloseMobile={() => setMobileSidebarOpen(false)}
       />
 
       {/* Main Container Area */}
       <div
-        className={`flex-1 flex flex-col min-w-0 transition-all duration-300 ${
-          sidebarCollapsed ? 'ml-18' : 'ml-64'
+        className={`flex-1 flex flex-col min-w-0 transition-all duration-300 ml-0 ${
+          sidebarCollapsed ? 'md:ml-18' : 'md:ml-64'
         }`}
       >
         {/* Top Header */}
         <TopBar
           onStartHuntClick={() => setIsStartHuntModalOpen(true)}
           onNavigate={(tab) => setCurrentTab(tab)}
+          onOpenMobileMenu={() => setMobileSidebarOpen(true)}
           onNavigateEntity={(type, id) => {
             if (type === 'program') {
               setSelectedProgramId(id);
@@ -360,7 +364,7 @@ export default function App() {
         />
 
         {/* Dynamic View Body */}
-        <main className="flex-1 p-6 sm:p-8 max-w-7xl w-full mx-auto">
+        <main className="flex-1 p-3 sm:p-5 md:p-6 lg:p-8 max-w-7xl w-full mx-auto min-w-0">
           {currentTab === 'home' && (
             <HomeView
               profile={profile}

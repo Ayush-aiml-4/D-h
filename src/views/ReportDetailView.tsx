@@ -133,21 +133,21 @@ ${report.testingPolicy}
   };
 
   return (
-    <div className="space-y-8 animate-fade-in pb-12 max-w-5xl mx-auto">
+    <div className="space-y-6 sm:space-y-8 animate-fade-in pb-12 max-w-5xl mx-auto">
       {/* Top Bar Navigation */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <button
           onClick={onBack}
-          className="inline-flex items-center gap-2 text-xs font-mono text-slate-400 hover:text-slate-100 transition-colors"
+          className="inline-flex items-center gap-2 text-xs font-mono text-slate-400 hover:text-slate-100 transition-colors self-start"
         >
           <ArrowLeft className="w-4 h-4" /> Back to Reports
         </button>
 
-        <div className="flex items-center gap-3">
+        <div className="flex flex-wrap items-center gap-2 sm:gap-3">
           <div className="flex items-center rounded-xl bg-slate-900 p-1 border border-white/10 font-mono text-xs">
             <button
               onClick={() => setActiveTab('report')}
-              className={`px-3 py-1.5 rounded-lg transition-colors cursor-pointer ${
+              className={`px-2.5 sm:px-3 py-1.5 rounded-lg transition-colors cursor-pointer ${
                 activeTab === 'report' ? 'bg-slate-800 text-slate-100 font-bold' : 'text-slate-400 hover:text-slate-200'
               }`}
             >
@@ -155,7 +155,7 @@ ${report.testingPolicy}
             </button>
             <button
               onClick={fetchOrCreateDisclosure}
-              className={`px-3 py-1.5 rounded-lg transition-colors flex items-center gap-1.5 cursor-pointer ${
+              className={`px-2.5 sm:px-3 py-1.5 rounded-lg transition-colors flex items-center gap-1.5 cursor-pointer ${
                 activeTab === 'disclosure' ? 'bg-red-950 text-red-300 font-bold border border-red-700/50' : 'text-slate-400 hover:text-slate-200'
               }`}
             >
@@ -166,7 +166,7 @@ ${report.testingPolicy}
 
           <button
             onClick={handleExportMarkdown}
-            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900 border border-white/10 hover:border-white/20 text-slate-200 text-xs font-mono uppercase font-semibold transition-colors cursor-pointer"
+            className="flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-xl bg-slate-900 border border-white/10 hover:border-white/20 text-slate-200 text-xs font-mono uppercase font-semibold transition-colors cursor-pointer"
           >
             {downloaded ? <Check className="w-4 h-4 text-emerald-400" /> : <Download className="w-4 h-4 text-slate-400" />}
             <span>Export Report</span>
@@ -177,7 +177,7 @@ ${report.testingPolicy}
       {activeTab === 'disclosure' && disclosurePkg ? (
         <div className="space-y-6">
           {/* Disclosure Intelligence Header */}
-          <div className="glass-panel-accent rounded-2xl p-8 border border-red-700/50 bg-gradient-to-r from-[#18080a] via-[#0d0c18] to-[#08090f]">
+          <div className="glass-panel-accent rounded-2xl p-5 sm:p-8 border border-red-700/50 bg-gradient-to-r from-[#18080a] via-[#0d0c18] to-[#08090f]">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
               <div className="space-y-3">
                 <div className="flex flex-wrap items-center gap-3">
@@ -332,12 +332,12 @@ ${report.testingPolicy}
                 <span>Export Submission Package</span>
               </div>
 
-              <div className="flex items-center gap-2">
+              <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
                 {(['markdown', 'html', 'text', 'json'] as const).map((fmt) => (
                   <button
                     key={fmt}
                     onClick={() => setExportFormat(fmt)}
-                    className={`px-3 py-1 rounded-lg uppercase text-[11px] font-bold cursor-pointer transition-colors ${
+                    className={`px-2.5 sm:px-3 py-1 rounded-lg uppercase text-[11px] font-bold cursor-pointer transition-colors ${
                       exportFormat === fmt
                         ? 'bg-blue-600 text-white'
                         : 'bg-slate-900 text-slate-400 hover:text-slate-200 border border-white/10'
@@ -349,7 +349,7 @@ ${report.testingPolicy}
 
                 <button
                   onClick={handleCopyExport}
-                  className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold uppercase text-[11px] cursor-pointer transition-colors ml-2"
+                  className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold uppercase text-[11px] cursor-pointer transition-colors sm:ml-2"
                 >
                   {copied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
                   <span>{copied ? 'Copied' : 'Copy'}</span>
@@ -364,7 +364,7 @@ ${report.testingPolicy}
         </div>
       ) : (
         /* Regular Report Detail View */
-        <div className="glass-panel rounded-2xl p-8 md:p-12 border border-white/15 shadow-2xl space-y-8 bg-[#0b0d14] text-slate-100 relative overflow-hidden">
+        <div className="glass-panel rounded-2xl p-5 sm:p-8 md:p-12 border border-white/15 shadow-2xl space-y-6 sm:space-y-8 bg-[#0b0d14] text-slate-100 relative overflow-hidden">
           <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-red-600 via-red-500 to-amber-500" />
 
           <div className="space-y-4 pb-6 border-b border-white/10">

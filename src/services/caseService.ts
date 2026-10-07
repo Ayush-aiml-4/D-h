@@ -201,7 +201,7 @@ export async function createResearchCase(
     }
 
     const prog = progRows[0];
-    if (prog.status !== 'Active') {
+    if (prog.status !== 'Active' && prog.status !== 'ACTIVE') {
       throw new ForbiddenError(`PROGRAM_INACTIVE: Program '${prog.name}' is inactive and cannot accept new cases`);
     }
 

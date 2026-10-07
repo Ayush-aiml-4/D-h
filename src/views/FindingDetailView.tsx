@@ -130,16 +130,16 @@ export const FindingDetailView: React.FC<FindingDetailViewProps> = ({
   return (
     <div className="space-y-8 animate-fade-in pb-12">
       {/* Back button & Breadcrumbs */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <button
           onClick={onBack}
-          className="inline-flex items-center gap-2 text-xs font-mono text-slate-400 hover:text-slate-100 transition-colors"
+          className="inline-flex items-center gap-2 text-xs font-mono text-slate-400 hover:text-slate-100 transition-colors self-start"
         >
           <ArrowLeft className="w-4 h-4" /> Back to Findings
         </button>
 
         {/* Originating links */}
-        <div className="flex items-center gap-3 text-xs font-mono">
+        <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-xs font-mono">
           {onNavigateToProgram && (
             <button
               onClick={() => onNavigateToProgram(finding.programName)}
@@ -163,10 +163,10 @@ export const FindingDetailView: React.FC<FindingDetailViewProps> = ({
       </div>
 
       {/* Header Banner */}
-      <div className="glass-panel-accent rounded-2xl p-8 border border-red-700/50 bg-gradient-to-r from-[#1a080c] via-[#0d0c18] to-[#08090f]">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-          <div className="space-y-3">
-            <div className="flex flex-wrap items-center gap-3">
+      <div className="glass-panel-accent rounded-2xl p-5 sm:p-8 border border-red-700/50 bg-gradient-to-r from-[#1a080c] via-[#0d0c18] to-[#08090f]">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-5 sm:gap-6">
+          <div className="space-y-3 min-w-0">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3">
               <SeverityBadge severity={finding.severity} />
               <span className="text-xs font-mono font-bold text-emerald-400 bg-emerald-950/80 border border-emerald-700/50 px-3 py-1 rounded-full">
                 Confidence: {finding.confidence}%
@@ -176,16 +176,16 @@ export const FindingDetailView: React.FC<FindingDetailViewProps> = ({
               </span>
             </div>
 
-            <h1 className="text-2xl sm:text-3xl font-bold font-outfit text-slate-100 tracking-wide">
+            <h1 className="text-xl sm:text-3xl font-bold font-outfit text-slate-100 tracking-wide">
               {finding.title}
             </h1>
 
-            <p className="text-xs font-mono text-slate-400">
+            <p className="text-xs font-mono text-slate-400 break-all">
               Target: <span className="text-red-300 font-bold">{finding.affectedTarget}</span>
             </p>
           </div>
 
-          <div className="flex items-center gap-3 shrink-0">
+          <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 shrink-0">
             <button
               onClick={() => setShowEvidence(!showEvidence)}
               className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900 border border-white/10 hover:border-white/20 text-slate-200 text-xs font-mono uppercase font-semibold transition-colors cursor-pointer"
@@ -197,7 +197,7 @@ export const FindingDetailView: React.FC<FindingDetailViewProps> = ({
             {/* State-dependent Primary Action Button */}
             <button
               onClick={handleNextAction}
-              className={`flex items-center gap-2 px-6 py-2.5 rounded-xl text-xs font-bold font-outfit uppercase tracking-wider transition-all cursor-pointer ${cta.style}`}
+              className={`flex items-center gap-2 px-5 sm:px-6 py-2.5 rounded-xl text-xs font-bold font-outfit uppercase tracking-wider transition-all cursor-pointer ${cta.style}`}
             >
               {cta.icon}
               <span>{cta.label}</span>

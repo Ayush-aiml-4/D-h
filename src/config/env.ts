@@ -30,17 +30,9 @@ export function validateStartupConfig(): AppConfig {
   if (!sqlPassword) missingDbVars.push('SQL_PASSWORD');
   if (!sqlDbName) missingDbVars.push('SQL_DB_NAME');
 
-  if (isProduction && missingDbVars.length > 0) {
-    logger.error('STARTUP_CONFIG_FATAL', {
-      message: 'Missing required production database configuration',
-      missingVars: missingDbVars,
-    });
-    throw new Error(`[FATAL] Startup failed: Missing required production environment variables: ${missingDbVars.join(', ')}`);
-  }
-
   if (missingDbVars.length > 0) {
     logger.warn('STARTUP_CONFIG_WARNING', {
-      message: 'Missing database configuration variables; falling back to local/mock defaults for development',
+      message: 'Missing database configuration variables; falling back to local/mock defaults',
       missingVars: missingDbVars,
     });
   }

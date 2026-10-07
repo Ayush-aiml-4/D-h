@@ -246,10 +246,10 @@ export const OperatorEngagementConsoleView: React.FC = () => {
   const evidence = session ? listEvidence(session.researchCaseId) : [];
 
   return (
-    <div className="space-y-8 animate-fade-in pb-16 max-w-6xl mx-auto">
+    <div className="space-y-6 sm:space-y-8 animate-fade-in pb-8 sm:pb-16 max-w-6xl mx-auto">
       {/* Mode banner */}
       <div
-        className={`rounded-2xl p-4 border flex items-center justify-between gap-4 ${
+        className={`rounded-2xl p-4 border flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 ${
           mode === 'LIVE_SUPERVISED'
             ? 'border-amber-500/50 bg-amber-950/30'
             : mode === 'FIXTURE'
@@ -259,11 +259,11 @@ export const OperatorEngagementConsoleView: React.FC = () => {
                 : 'border-red-600/40 bg-red-950/20'
         }`}
       >
-        <div className="flex items-center gap-3">
-          <Radio className={`w-5 h-5 ${mode === 'LIVE_SUPERVISED' ? 'text-amber-400 animate-pulse' : 'text-slate-300'}`} />
+        <div className="flex items-start sm:items-center gap-3">
+          <Radio className={`w-5 h-5 shrink-0 mt-0.5 sm:mt-0 ${mode === 'LIVE_SUPERVISED' ? 'text-amber-400 animate-pulse' : 'text-slate-300'}`} />
           <div>
             <div className="text-[10px] font-mono uppercase text-slate-400 tracking-wider">Traffic mode (unambiguous)</div>
-            <div className="text-lg font-outfit font-bold uppercase tracking-wider">
+            <div className="text-sm sm:text-lg font-outfit font-bold uppercase tracking-wider">
               {mode === 'FIXTURE' && 'FIXTURE MODE — NO LIVE NETWORK TRAFFIC'}
               {mode === 'LIVE_SUPERVISED' && 'LIVE SUPERVISED MODE — REAL NETWORK ENABLED'}
               {mode === 'BLOCKED' && 'BLOCKED — SESSION / GATES NOT READY'}
@@ -271,7 +271,7 @@ export const OperatorEngagementConsoleView: React.FC = () => {
             </div>
           </div>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 shrink-0">
           <Lock className="w-4 h-4 text-red-400" />
           <span className="text-xs font-mono text-red-300">ACTIVE TESTING LOCKED</span>
         </div>

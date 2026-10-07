@@ -65,10 +65,10 @@ export const ActiveHuntView: React.FC<ActiveHuntViewProps> = ({
       </button>
 
       {/* Hero Header */}
-      <div className="glass-panel-accent rounded-2xl p-8 border border-red-700/50 bg-gradient-to-r from-[#1b080c] via-[#0d0d18] to-[#08090e] relative overflow-hidden shadow-[0_0_40px_rgba(220,38,38,0.2)]">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
-          <div className="space-y-2">
-            <div className="flex items-center gap-2">
+      <div className="glass-panel-accent rounded-2xl p-5 sm:p-8 border border-red-700/50 bg-gradient-to-r from-[#1b080c] via-[#0d0d18] to-[#08090e] relative overflow-hidden shadow-[0_0_40px_rgba(220,38,38,0.2)]">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-5 sm:gap-6 relative z-10">
+          <div className="space-y-2 min-w-0">
+            <div className="flex flex-wrap items-center gap-2">
               <span className="px-3 py-1 rounded-full bg-red-950/80 border border-red-700/60 text-red-400 text-xs font-mono font-bold uppercase flex items-center gap-1.5 shadow-[0_0_10px_rgba(220,38,38,0.4)]">
                 <Radio className="w-3.5 h-3.5 text-red-500 animate-pulse" />
                 {isPaused ? 'HUNT PAUSED' : 'HUNT IN PROGRESS'}
@@ -76,7 +76,7 @@ export const ActiveHuntView: React.FC<ActiveHuntViewProps> = ({
               <span className="text-xs font-mono text-slate-400">• {hunt.programName}</span>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl font-extrabold font-mono text-slate-100 tracking-tight">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-mono text-slate-100 tracking-tight break-all">
               {hunt.targetDomain}
             </h1>
 
@@ -85,7 +85,7 @@ export const ActiveHuntView: React.FC<ActiveHuntViewProps> = ({
             </p>
           </div>
 
-          <div className="flex items-center gap-3 shrink-0">
+          <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 shrink-0">
             <button
               onClick={() => setIsPaused(!isPaused)}
               className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900 border border-white/10 hover:border-white/20 text-slate-200 text-xs font-mono uppercase font-semibold transition-colors cursor-pointer"

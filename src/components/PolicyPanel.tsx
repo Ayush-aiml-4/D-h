@@ -66,25 +66,31 @@ export const PolicyPanel: React.FC<PolicyPanelProps> = ({
   const BadgeIcon = badgeStyle.icon;
 
   return (
-    <div className="glass-panel rounded-2xl p-5 border border-red-900/30 relative overflow-hidden bg-gradient-to-b from-[#12141d] to-[#0d0e14]">
+    <div
+      className={`glass-panel ${
+        compact
+          ? 'rounded-xl p-4 border border-slate-700/60 bg-[#080b13]/75'
+          : 'rounded-2xl p-5 border border-red-900/30 bg-gradient-to-b from-[#12141d] to-[#0d0e14]'
+      } relative overflow-hidden`}
+    >
       {/* Top accent glow */}
       <div className="absolute -top-12 -right-12 w-32 h-32 bg-red-600/10 rounded-full blur-2xl pointer-events-none" />
 
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-white/5 gap-3 mb-4">
+      <div className={`flex flex-col sm:flex-row sm:items-center justify-between ${compact ? 'pb-3 mb-3' : 'pb-4 mb-4'} border-b border-white/10 gap-2.5`}>
         <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-lg bg-red-950/80 border border-red-700/50 flex items-center justify-center text-red-400 shrink-0">
-            <ShieldCheck className="w-4 h-4" />
+          <div className="w-7 h-7 rounded-lg bg-red-950/80 border border-red-700/50 flex items-center justify-center text-red-400 shrink-0">
+            <ShieldCheck className="w-3.5 h-3.5" />
           </div>
           <div>
-            <h3 className="text-sm font-bold font-outfit uppercase tracking-wider text-slate-100">
+            <h3 className="text-xs sm:text-sm font-bold font-outfit uppercase tracking-wider text-slate-100">
               Program Rules & Policy Guards
             </h3>
-            <p className="text-xs text-slate-400 font-sans">Policy-aware research boundary enforcer</p>
+            <p className="text-[11px] text-slate-400 font-sans">Policy-aware research boundary enforcer</p>
           </div>
         </div>
 
-        <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full border text-xs font-mono font-bold tracking-wider shrink-0 ${badgeStyle.bg}`}>
-          <BadgeIcon className="w-3.5 h-3.5" />
+        <div className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full border text-[10px] font-mono font-bold tracking-wider shrink-0 ${badgeStyle.bg}`}>
+          <BadgeIcon className="w-3 h-3" />
           <span>{badgeStyle.label}</span>
         </div>
       </div>
@@ -100,14 +106,14 @@ export const PolicyPanel: React.FC<PolicyPanelProps> = ({
           </p>
         </div>
       ) : (
-        <div className={`grid ${compact ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2'} gap-4 mb-4`}>
+        <div className={`grid ${compact ? 'grid-cols-1 gap-3 mb-3' : 'grid-cols-1 md:grid-cols-2 gap-4 mb-4'}`}>
           {/* Allowed Section */}
-          <div className="bg-emerald-950/20 rounded-xl p-3.5 border border-emerald-900/30">
-            <div className="flex items-center gap-1.5 text-xs font-mono font-semibold text-emerald-400 uppercase tracking-wider mb-2.5">
-              <Check className="w-4 h-4 text-emerald-400" />
+          <div className="bg-emerald-950/25 rounded-lg p-3 border border-emerald-900/35">
+            <div className="flex items-center gap-1.5 text-[11px] font-mono font-semibold text-emerald-400 uppercase tracking-wider mb-2">
+              <Check className="w-3.5 h-3.5 text-emerald-400" />
               <span>Allowed Research Vectors ({rulesAllowed.length})</span>
             </div>
-            <ul className="space-y-2">
+            <ul className="space-y-1.5">
               {rulesAllowed.map((rule, idx) => (
                 <li key={idx} className="flex items-start gap-2 text-xs text-slate-300">
                   <span className="text-emerald-400 font-bold shrink-0 mt-0.5">✓</span>
@@ -118,12 +124,12 @@ export const PolicyPanel: React.FC<PolicyPanelProps> = ({
           </div>
 
           {/* Blocked Section */}
-          <div className="bg-red-950/20 rounded-xl p-3.5 border border-red-900/30">
-            <div className="flex items-center gap-1.5 text-xs font-mono font-semibold text-red-400 uppercase tracking-wider mb-2.5">
-              <X className="w-4 h-4 text-red-400" />
+          <div className="bg-red-950/25 rounded-lg p-3 border border-red-900/35">
+            <div className="flex items-center gap-1.5 text-[11px] font-mono font-semibold text-red-400 uppercase tracking-wider mb-2">
+              <X className="w-3.5 h-3.5 text-red-400" />
               <span>Restricted Actions ({rulesBlocked.length})</span>
             </div>
-            <ul className="space-y-2">
+            <ul className="space-y-1.5">
               {rulesBlocked.map((rule, idx) => (
                 <li key={idx} className="flex items-start gap-2 text-xs text-slate-300">
                   <span className="text-red-400 font-bold shrink-0 mt-0.5">✕</span>
@@ -135,7 +141,7 @@ export const PolicyPanel: React.FC<PolicyPanelProps> = ({
         </div>
       )}
 
-      <div className="pt-3 border-t border-white/5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs text-slate-400">
+      <div className="pt-2.5 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-[11px] text-slate-400">
         <p className="italic">
           Everything permitted by the program can be tested. Restricted actions automatically stay blocked.
         </p>

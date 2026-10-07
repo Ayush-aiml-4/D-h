@@ -94,7 +94,7 @@ export const AddProgramModal: React.FC<AddProgramModalProps> = ({
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="glass-panel w-full max-w-xl rounded-2xl p-6 border border-white/10 relative overflow-hidden text-slate-100"
+        className="glass-panel w-full max-w-xl max-h-[90vh] overflow-y-auto rounded-2xl p-4 sm:p-6 border border-white/10 relative text-slate-100"
       >
         <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
           <div className="flex items-center gap-3">

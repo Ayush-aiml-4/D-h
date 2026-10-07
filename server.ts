@@ -56,14 +56,15 @@ async function startServer() {
     next(err);
   });
 
-  // Verify database connectivity & seed relational database
+  // Verify database connectivity & seed relational or in-memory fallback database
   try {
     logger.info('DATABASE_VERIFICATION_INIT', { message: 'Starting PostgreSQL verification' });
     const isDbConnected = await verifyDatabaseConnection();
     if (isDbConnected) {
       await seedDatabase();
     } else {
-      logger.warn('DATABASE_INIT_UNAVAILABLE', { message: 'PostgreSQL unavailable at startup; will attempt reconnect on request' });
+      logger.warn('DATABASE_INIT_UNAVAILABLE', { message: 'PostgreSQL unavailable at startup; seeding in-memory fallback database' });
+      await seedDatabase();
     }
   } catch (err) {
     logger.error('DATABASE_INIT_ERROR', { error: err instanceof Error ? err.message : String(err) });

@@ -216,7 +216,7 @@ export const CapabilitiesView: React.FC<CapabilitiesViewProps> = ({ programs }) 
       </div>
 
       {/* Filter Toolbar */}
-      <div className="p-4 rounded-xl bg-slate-900/80 border border-white/10 flex flex-col sm:flex-row gap-4 items-center justify-between">
+      <div className="p-4 rounded-xl bg-slate-900/80 border border-white/10 flex flex-col sm:flex-row gap-3 sm:gap-4 items-stretch sm:items-center justify-between">
         <div className="relative w-full sm:w-80">
           <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
           <input
@@ -228,13 +228,13 @@ export const CapabilitiesView: React.FC<CapabilitiesViewProps> = ({ programs }) 
           />
         </div>
 
-        <div className="flex items-center gap-3 w-full sm:w-auto">
-          <div className="flex items-center gap-2">
-            <Filter className="w-4 h-4 text-slate-400" />
+        <div className="flex flex-wrap items-center gap-2 sm:gap-3 w-full sm:w-auto">
+          <div className="flex items-center gap-2 flex-1 sm:flex-initial">
+            <Filter className="w-4 h-4 text-slate-400 shrink-0" />
             <select
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
-              className="bg-slate-950 border border-white/10 rounded-lg px-3 py-2 text-xs font-mono text-slate-200 focus:outline-none focus:border-red-500/50"
+              className="w-full sm:w-auto bg-slate-950 border border-white/10 rounded-lg px-3 py-2 text-xs font-mono text-slate-200 focus:outline-none focus:border-red-500/50"
             >
               {categories.map((cat) => (
                 <option key={cat} value={cat}>
@@ -247,7 +247,7 @@ export const CapabilitiesView: React.FC<CapabilitiesViewProps> = ({ programs }) 
           <select
             value={selectedStatus}
             onChange={(e) => setSelectedStatus(e.target.value)}
-            className="bg-slate-950 border border-white/10 rounded-lg px-3 py-2 text-xs font-mono text-slate-200 focus:outline-none focus:border-red-500/50"
+            className="w-full sm:w-auto bg-slate-950 border border-white/10 rounded-lg px-3 py-2 text-xs font-mono text-slate-200 focus:outline-none focus:border-red-500/50"
           >
             {statuses.map((st) => (
               <option key={st} value={st}>

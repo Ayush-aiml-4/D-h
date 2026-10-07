@@ -60,15 +60,15 @@ export const HuntsView: React.FC<HuntsViewProps> = ({
               <div
                 key={hunt.id}
                 onClick={() => onSelectHunt(hunt.id)}
-                className={`glass-panel card-lift rounded-2xl p-6 border cursor-pointer group relative overflow-hidden ${
+                className={`glass-panel card-lift rounded-2xl p-4 sm:p-6 border cursor-pointer group relative overflow-hidden ${
                   isLive
                     ? 'border-red-600/50 bg-gradient-to-r from-[#18090c] via-[#0d0d18] to-[#090a0f] shadow-[0_0_25px_rgba(220,38,38,0.15)]'
                     : 'border-white/10 hover:border-white/20'
                 }`}
               >
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
-                  <div className="space-y-1">
-                    <div className="flex items-center gap-3">
+                  <div className="space-y-1 min-w-0">
+                    <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
                       <span className="text-xs font-mono uppercase text-slate-400 font-semibold">
                         {hunt.programName}
                       </span>
@@ -84,7 +84,7 @@ export const HuntsView: React.FC<HuntsViewProps> = ({
                       </span>
                     </div>
 
-                    <h3 className="text-xl font-bold font-mono text-slate-100 group-hover:text-red-300 transition-colors">
+                    <h3 className="text-base sm:text-xl font-bold font-mono text-slate-100 group-hover:text-red-300 transition-colors break-all">
                       {hunt.targetDomain}
                     </h3>
 
@@ -93,16 +93,16 @@ export const HuntsView: React.FC<HuntsViewProps> = ({
                     </p>
                   </div>
 
-                  <div className="flex items-center gap-4 text-xs font-mono shrink-0">
-                    <div className="text-right">
+                  <div className="grid grid-cols-3 md:flex items-center gap-2 sm:gap-4 text-xs font-mono shrink-0 pt-2 md:pt-0 border-t border-white/5 md:border-t-0">
+                    <div className="md:text-right">
                       <span className="text-slate-500 text-[10px] uppercase block">Potential Findings</span>
                       <span className="text-amber-400 font-bold">{potentialCount}</span>
                     </div>
-                    <div className="text-right">
+                    <div className="md:text-right">
                       <span className="text-slate-500 text-[10px] uppercase block">Verified Bugs</span>
                       <span className="text-emerald-400 font-bold">{verifiedCount}</span>
                     </div>
-                    <div className="text-right">
+                    <div className="md:text-right">
                       <span className="text-slate-500 text-[10px] uppercase block">Policy Violations</span>
                       <span className="text-emerald-400 font-bold">{policyViolations}</span>
                     </div>
@@ -111,12 +111,12 @@ export const HuntsView: React.FC<HuntsViewProps> = ({
 
                 {/* Progress & Task status */}
                 <div className="pt-4 border-t border-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-mono">
-                  <div className="flex items-center gap-2 text-slate-300 truncate">
-                    <span className="text-slate-500 uppercase text-[10px]">Current Task:</span>
-                    <span className="truncate max-w-[320px]">{hunt.currentTask}</span>
+                  <div className="flex items-center gap-2 text-slate-300 min-w-0">
+                    <span className="text-slate-500 uppercase text-[10px] shrink-0">Current Task:</span>
+                    <span className="truncate">{hunt.currentTask}</span>
                   </div>
 
-                  <div className="flex items-center gap-3 shrink-0">
+                  <div className="flex items-center justify-between sm:justify-end gap-3 shrink-0">
                     <span className="text-red-400 font-bold">{hunt.progressPercent}% Complete</span>
                     <button className="px-3 py-1 rounded-lg bg-slate-900 border border-white/10 text-slate-200 group-hover:border-red-500/50 group-hover:text-red-300 transition-colors font-outfit uppercase font-bold text-[11px] flex items-center gap-1">
                       <span>OPEN HUNT</span>
