@@ -1,0 +1,76 @@
+{
+  "huntId": "003",
+  "target": "supplier.meesho.com",
+  "scope": "CONFIRMED",
+  "mode": "OBSERVE",
+  "status": "IDLE",
+  "sessionType": "REAL",
+  "trafficSource": "NOT_CONNECTED",
+  "trafficConnection": "DISCONNECTED",
+  "sensorConnection": "DISCONNECTED",
+  "trafficState": "WAITING",
+  "trafficEventsReceived": 0,
+  "trafficLastEvent": null,
+  "trafficError": null,
+  "requests": 0,
+  "endpoints": 0,
+  "hypotheses": 0,
+  "tests": 0,
+  "findings": 0,
+  "events": [
+    {
+      "id": "ev_reset_1791385289964",
+      "ts": "2026-10-07T15:01:29.964Z",
+      "kind": "SYSTEM",
+      "message": "Hunt #003 REAL session ready — MODE OBSERVE — counters zeroed (demo archived separately)"
+    }
+  ],
+  "capturedRequests": [],
+  "hypothesisList": [],
+  "pendingApproval": null,
+  "endpointSet": [],
+  "outOfScopeDiscoveries": [],
+  "demo": {
+    "events": [
+      {
+        "id": "ev_demo_1791385287157",
+        "ts": "2026-10-07T15:01:27.157Z",
+        "kind": "TRAFFIC",
+        "message": "[DEMO] GET 127.0.0.1 /demo-api/profile 200"
+      }
+    ],
+    "capturedRequests": [
+      {
+        "id": "demo_1791385287157",
+        "ts": "2026-10-07T15:01:27.157Z",
+        "method": "GET",
+        "host": "127.0.0.1",
+        "path": "/demo-api/profile",
+        "queryParamNames": [
+          "resourceId"
+        ],
+        "bodyKeys": [],
+        "status": 200,
+        "category": "PROFILE",
+        "authState": "DEMO",
+        "source": "DEMO"
+      }
+    ],
+    "hypotheses": [],
+    "requests": 1,
+    "endpoints": 0,
+    "tests": 0
+  },
+  "allowedHosts": [
+    "supplier.meesho.com",
+    "www.meesho.com",
+    "affiliate.meesho.com",
+    "admin.meeshosupply.com",
+    "prod.meeshoapi.com",
+    "www.valmo.in",
+    "superstoreapp.meesho.com",
+    "investor.meesho.com",
+    "meesho.io"
+  ],
+  "connectedAt": null
+}

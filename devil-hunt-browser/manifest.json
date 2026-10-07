@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Devil Hunt Sensor",
+  "version": "1.0.0",
+  "description": "Passive observation sensor for Devil Hunt local console. Does not attack, modify, or replay traffic.",
+  "permissions": ["storage", "webRequest"],
+  "host_permissions": [
+    "http://127.0.0.1:3000/*",
+    "http://localhost:3000/*",
+    "https://supplier.meesho.com/*",
+    "http://supplier.meesho.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Devil Hunt Sensor",
+    "default_popup": "popup.html"
+  }
+}

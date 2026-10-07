@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+
+# Build & compilation outputs
+build/
+dist/
+coverage/
+
+# OS and Log files
+.DS_Store
+*.log
+
+# Environment & Secret files
+.env*
+!.env.example
+*.pem
+*.key
+*.p12
+service-account*.json
+
+.rocketride/
+.env

@@ -1,0 +1,32 @@
+export const DISCOVERY_SESSION_STATUSES = {
+  READY: 'READY',
+  STARTING: 'STARTING',
+  DISCOVERING: 'DISCOVERING',
+  ANALYZING: 'ANALYZING',
+  COMPLETED: 'COMPLETED',
+  STOPPED: 'STOPPED',
+  BLOCKED: 'BLOCKED',
+  FAILED: 'FAILED',
+} as const;
+
+export type DiscoverySessionStatus = keyof typeof DISCOVERY_SESSION_STATUSES;
+
+export const DISCOVERY_ASSET_TYPES = {
+  DOMAIN: 'DOMAIN',
+  SUBDOMAIN: 'SUBDOMAIN',
+  URL: 'URL',
+  API_ENDPOINT: 'API_ENDPOINT',
+  SERVICE: 'SERVICE',
+} as const;
+
+export type DiscoveryAssetType = keyof typeof DISCOVERY_ASSET_TYPES;
+
+export const DISCOVERY_ASSET_STATUSES = {
+  AUTHORIZED: 'AUTHORIZED',
+  DISCOVERED: 'DISCOVERED',
+  OUT_OF_SCOPE: 'OUT_OF_SCOPE',
+  UNKNOWN: 'UNKNOWN',
+  DISABLED: 'DISABLED',
+} as const;
+
+export type DiscoveryAssetStatus = keyof typeof DISCOVERY_ASSET_STATUSES;
